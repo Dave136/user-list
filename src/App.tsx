@@ -33,7 +33,8 @@ function App() {
         `/users?limit=${PAGE_LIMIT}&skip=${PAGE_LIMIT * currentPage}`
       );
       setUsers(data?.users);
-      setPageCount(Math.ceil(data.total / PAGE_LIMIT));
+      const pageCount = Math.ceil(data.total / PAGE_LIMIT);
+      setPageCount(pageCount - 1);
       isMounted.current = true;
     } catch (error) {
       setUsers([]);
