@@ -80,13 +80,18 @@ function App() {
                     setShowModal(true);
                   },
                 }}
+                className="cursor-pointer"
               >
                 <Column
-                  title="id"
-                  key="id"
-                  dataKey="id"
-                  headerClassName="text-[10px] font-bold text-gray-900"
+                  title="photo"
+                  key="image"
+                  dataKey="image"
                   width={150}
+                  align="center"
+                  headerClassName="text-[10px] font-bold text-gray-900"
+                  cellRenderer={({ rowData }) => (
+                    <img src={rowData.image} className="w-6" />
+                  )}
                 />
                 <Column
                   title="Usuario"
