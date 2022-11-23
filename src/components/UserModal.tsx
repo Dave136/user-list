@@ -27,7 +27,7 @@ const UserModal = ({ user, active, onClose }: Props) => {
             </p>
           </div>
         </header>
-        <hr className="h-[2px] bg-light-900 mt-6 w-full" />
+        <hr className="h-[1px] bg-light-900 mt-6 w-full" />
         <section className="mt-6">
           <header>
             <h3 className="font-bold text-gray-900">Información</h3>
