@@ -89,7 +89,7 @@ function App() {
                   width={150}
                   align="center"
                   headerClassName="text-[10px] font-bold text-gray-900"
-                  cellRenderer={({ rowData }) => (
+                  cellRenderer={({ rowData }: { rowData: User }) => (
                     <img src={rowData.image} className="w-6" />
                   )}
                 />
