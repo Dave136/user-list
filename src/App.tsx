@@ -9,9 +9,11 @@ function App() {
   const [users, setUsers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const getUsers = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.get(
         `/users?limit=${PAGE_LIMIT}&skip=${PAGE_LIMIT * currentPage}`
       );
@@ -19,6 +21,8 @@ function App() {
       setPageCount(Math.ceil(data.total / PAGE_LIMIT));
     } catch (error) {
       setUsers([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -31,11 +35,19 @@ function App() {
     setCurrentPage(selectedPage + 1);
   };
 
+  const emptyRenderer = () => <span>Cargando ...</span>;
+
   return (
-    <div className="max-w-md mx-auto mt-8">
+    <div className="max-w-2xl mx-auto mt-8">
       <h2 className="text-3xl mb-8">Lista de Usuarios</h2>
       <div>
-        <Table data={users} width={600} height={400}>
+        <Table
+          data={users}
+          width={600}
+          height={400}
+          disabled={loading}
+          emptyRenderer={emptyRenderer}
+        >
           <Column title="ID" key="id" dataKey="id" width={100} />
           <Column
             title="Nombre"
@@ -59,7 +71,7 @@ function App() {
           />
         </Table>
       </div>
-      <div>
+      <div className="mt-8">
         <ReactPaginate
           previousLabel="Anterior"
           nextLabel="Siguiente"
@@ -67,6 +79,13 @@ function App() {
           pageCount={pageCount}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
+          containerClassName="flex list-none items-center"
+          previousLinkClassName="p-3 border border-[#dcdcdc] rounded-md mr-3 cursor-pointer"
+          breakClassName="p-3 border border-[#dcdcdc] rounded-md mr-3 cursor-pointer"
+          nextLinkClassName="p-3 border border-[#dcdcdc] rounded-md mr-3 cursor-pointer"
+          pageClassName="p-3 border border-[#dcdcdc] rounded-md mr-3 cursor-pointer"
+          disabledClassName="cursor-not-allowed"
+          activeClassName="border-2 border-black"
           onPageChange={handlePageClick}
         />
       </div>
