@@ -1,0 +1,17 @@
+.BaseTable,
+.BaseTable__body,
+.BaseTable__table,
+.BaseTable__header,
+.BaseTable__row,
+.BaseTable__body > div,
+.BaseTable__header > div {
+  @apply !w-full;
+}
+
+.BaseTable__header > div {
+  @apply uppercase;
+}
+
+.BaseTable {
+  @apply shadow-md;
+}
