@@ -32,8 +32,8 @@ function App() {
   };
 
   return (
-    <div>
-      <h2>Lista de Usuarios</h2>
+    <div className="max-w-md mx-auto mt-8">
+      <h2 className="text-3xl mb-8">Lista de Usuarios</h2>
       <div>
         <Table data={users} width={600} height={400}>
           <Column title="ID" key="id" dataKey="id" width={100} />
