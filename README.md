@@ -17,7 +17,7 @@
 </div>
 
 <div align="center">
-  ![Netlify Status](https://api.netlify.com/api/v1/badges/405d285e-8825-47e8-bc13-74b05fa03c16/deploy-status)](https://app.netlify.com/sites/reactjs-users-list/deploys)
+  <img src="https://api.netlify.com/api/v1/badges/405d285e-8825-47e8-bc13-74b05fa03c16/deploy-status" />
 </div>
 
 <!-- TABLE OF CONTENTS -->
