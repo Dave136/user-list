@@ -51,7 +51,7 @@ const Skeleton = () => {
           <div className="w-14 bg-zinc-200 h-4 rounded-md"></div>
         </div>
       </div>
-      <div className="w-full mt-4">
+      <div className="w-full mt-12">
         <div className="w-full h-16 flex items-center gap-4 justify-center">
           <div className="w-16 bg-zinc-200 h-8 rounded-md"></div>
           <div className="w-8 bg-zinc-200 h-8 rounded-md"></div>
